@@ -24,8 +24,9 @@ R = TypeVar("R")
 if SUPPORT_PARAM_SPEC:
 
     def sync_to_async(func: Callable[P, R], thread_sensitive: bool = True, executor: Optional[ThreadPoolExecutor] = None) -> Callable[P, Awaitable[R]]:
-        return untyped_sync_to_async(func, thread_sensitive=thread_sensitive, executor=executor)
-
+        if executor:
+            return untyped_sync_to_async(func, thread_sensitive=thread_sensitive, executor=executor)
+        return untyped_sync_to_async(func, thread_sensitive=thread_sensitive) # asgiref<3.4
 
     def async_to_sync(func: Callable[P, Awaitable[R]], force_new_loop=False) -> Callable[P, R]:
         return untyped_async_to_sync(func, force_new_loop=force_new_loop)
@@ -33,8 +34,9 @@ if SUPPORT_PARAM_SPEC:
 else:
 
     def sync_to_async(func: Callable[..., R], thread_sensitive: bool = True, executor: Optional[ThreadPoolExecutor] = None) -> Callable[..., Awaitable[R]]:
-        return untyped_sync_to_async(func, thread_sensitive=thread_sensitive, executor=executor)
-
+        if executor:
+            return untyped_sync_to_async(func, thread_sensitive=thread_sensitive, executor=executor)
+        return untyped_sync_to_async(func, thread_sensitive=thread_sensitive) # asgiref<3.4
 
     def async_to_sync(func: Callable[..., Awaitable[R]], force_new_loop=False) -> Callable[..., R]:
         return untyped_async_to_sync(func, force_new_loop=force_new_loop)
