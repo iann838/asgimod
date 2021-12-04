@@ -271,6 +271,7 @@ qs = qa | qb
 
 #### _asyncmethod_ `item(val: Union[int, Any])` -> `T | Tuple | datetime | date | Any`
 Returns the item on index `val` of an `AsyncQuerySet[T]`. This method is used by `__getitem__` internally. The return type depends on the query, for return type of each query please refer to the official Django QuerySet API references.
+
 <br>
 
 #### _asyncmethod_ `eval()` -> `List[T | Tuple | datetime | date | Any]`
