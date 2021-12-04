@@ -90,12 +90,12 @@ Returns an instance of `AsyncManager`. Async equivalent of `Model.objects`.
 
 <br>
 
-#### _asyncmethod_ `asave(force_insert=False, force_update=False, using=DEFAULT_DB_ALIAS, update_fields=None)` -> None
+#### _asyncmethod_ `asave(force_insert=False, force_update=False, using=DEFAULT_DB_ALIAS, update_fields=None)` -> `None`
 Async equivalent of `Model.save`
 
 <br>
 
-#### _asyncmethod_ `adelete(using=DEFAULT_DB_ALIAS, keep_parents=False)` -> None
+#### _asyncmethod_ `adelete(using=DEFAULT_DB_ALIAS, keep_parents=False)` -> `None`
 Async equivalent of `Model.delete`
 
 <br>
@@ -106,7 +106,7 @@ There are 3 possible returns from an async foreign relation access.
 - `AsyncManyToManyRelatedManager`: Result of a many to many relation access (both forward and reverse access).
 - `Awaitable[T]`: Result of a one to one relation access or a forward many to one relation access. Returns an awaitable with `T` return (`T` being the type of the foreign object).
 
-To access a foreign relation in async mode, add the `a` prefix to your sync access attribute. Using the models defined for this documentations, examples:
+To access a foreign relation in async mode, add the `a` prefix to your sync access attribute. Using the models defined for this documentation, examples:
 
 ```python
 price = await Price.aobjects.get(id=1)
@@ -116,9 +116,10 @@ bacon = await Topping.aobjects.get(id=1)
 mushroom = await Topping.aobjects.get(id=2)
 medium_box = await Box.aobjects.get(id=1)
 
-# one to one rel
+# one to one rel & forward many to one rel
 await pizza.aprice
 await price.apizza
+await price.abox
 
 # reverse many to one rel
 await medium_box.apizza_set.all().get(id=1)
@@ -507,22 +508,22 @@ Extends `AsyncQuerySet[T]`. Manager returned for reverse many-to-one foreign rel
 
 <br>
 
-#### _asyncmethod_ `add(*objs, bulk=True) -> None`
+#### _asyncmethod_ `add(*objs, bulk=True)` -> `None`
 Async equivalent of `models.fields.related_descriptors.create_reverse_many_to_one_manager.RelatedManager.add`.
 
 <br>
 
-#### _asyncmethod_ `remove(*objs, bulk=True) -> None`
+#### _asyncmethod_ `remove(*objs, bulk=True)` -> `None`
 Async equivalent of `models.fields.related_descriptors.create_reverse_many_to_one_manager.RelatedManager.remove`.
 
 <br>
 
-#### _asyncmethod_ `clear(*, bulk=True) -> None`
+#### _asyncmethod_ `clear(*, bulk=True)` -> `None`
 Async equivalent of `models.fields.related_descriptors.create_reverse_many_to_one_manager.RelatedManager.clear`.
 
 <br>
 
-#### _asyncmethod_ `set(objs, *, bulk=True, clear=False) -> None`
+#### _asyncmethod_ `set(objs, *, bulk=True, clear=False)` -> `None`
 Async equivalent of `models.fields.related_descriptors.create_reverse_many_to_one_manager.RelatedManager.set`.
 
 <br>
@@ -533,37 +534,37 @@ Extends `AsyncQuerySet[T]`. Manager returned for many-to-many foreign relation a
 
 <br>
 
-#### _asyncmethod_ `add(*objs, through_defaults=None) -> None`
+#### _asyncmethod_ `add(*objs, through_defaults=None)` -> `None`
 Async equivalent of `models.fields.related_descriptors.create_forward_many_to_many_manager.RelatedManager.add`.
 
 <br>
 
-#### _asyncmethod_ `create(*, through_defaults=None, **kwargs) -> T`
+#### _asyncmethod_ `create(*, through_defaults=None, **kwargs)` -> `T`
 Async equivalent of `models.fields.related_descriptors.create_forward_many_to_many_manager.RelatedManager.create`.
 
 <br>
 
-#### _asyncmethod_ `get_or_create(*, through_defaults=None, **kwargs) -> T`
+#### _asyncmethod_ `get_or_create(*, through_defaults=None, **kwargs)` -> `T`
 Async equivalent of `models.fields.related_descriptors.create_forward_many_to_many_manager.RelatedManager.get_or_create`.
 
 <br>
 
-#### _asyncmethod_ `update_or_create(*, through_defaults=None, **kwargs) -> T`
+#### _asyncmethod_ `update_or_create(*, through_defaults=None, **kwargs)` -> `T`
 Async equivalent of `models.fields.related_descriptors.create_forward_many_to_many_manager.RelatedManager.update_or_create`.
 
 <br>
 
-#### _asyncmethod_ `remove(*objs) -> None`
+#### _asyncmethod_ `remove(*objs)` -> `None`
 Async equivalent of `models.fields.related_descriptors.create_forward_many_to_many_manager.RelatedManager.remove`.
 
 <br>
 
-#### _asyncmethod_ `clear() -> None`
+#### _asyncmethod_ `clear()` -> `None`
 Async equivalent of `models.fields.related_descriptors.create_forward_many_to_many_manager.RelatedManager.clear`.
 
 <br>
 
-#### _asyncmethod_ `set(objs, *, clear=False, through_defaults=None) -> None`
+#### _asyncmethod_ `set(objs, *, clear=False, through_defaults=None)` -> `None`
 Async equivalent of `models.fields.related_descriptors.create_forward_many_to_many_manager.RelatedManager.set`.
 
 <br>
