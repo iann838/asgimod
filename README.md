@@ -7,6 +7,17 @@ This package includes components and utilities that makes django \*usable\* in a
 - Async managers and querysets (fully typed), `asgimod.db`.
 - Typed `sync_to_async` and `async_to_sync` wrappers, `asgimod.sync`.
 
+#### Requirements:
+
+- Django >= 3.0
+- Python >= 3.8
+
+#### Installation:
+
+```sh
+pip install asgimod
+```
+
 The documentation uses references from these model definitions:
 
 ```python
