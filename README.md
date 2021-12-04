@@ -7,6 +7,14 @@ This package includes components and utilities that makes django \*usable\* in a
 - Async managers and querysets (fully typed), `asgimod.db`.
 - Typed `sync_to_async` and `async_to_sync` wrappers, `asgimod.sync`.
 
+#### Package FAQ:
+
+1. Does this support foreign relation access: YES.
+2. Does this allow queryset chaining: YES.
+3. Does this allow queryset iterating, slicing and indexing: YES.
+4. Does this affect default model manager functionality: NO, because it’s on another classproperty `aobjects`.
+5. Is everything TYPED: YES, with the only exception of function parameters specification on Python<3.10 since PEP 612 is being released on 3.10.
+
 #### Requirements:
 
 - Django >= 3.0
