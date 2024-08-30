@@ -1,4 +1,12 @@
 # asgimod
+
+> [!WARNING]
+> Since Django 4.1 (2022), built-in async support was added. This package is now archived and redundant, please use the officially maintained APIs for async Django projects. Relevant docs:
+>
+> - [Low-level async API](https://docs.djangoproject.com/en/4.2/topics/async/)
+> - [Making async queries](https://docs.djangoproject.com/en/4.2/topics/db/queries/#async-queries)
+
+---
 [![MIT Licensed](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/paaksing/asgimod/blob/master/LICENSE)
 
 This package includes components and utilities that makes django \*usable\* in async python, such as:
